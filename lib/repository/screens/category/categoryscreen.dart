@@ -24,6 +24,14 @@ class CategoryScreen extends StatelessWidget {
     {"img": "image 34.png", "text": "Sauces & \nSpreads"},
     {"img": "image 35.png", "text": "Beauty & \nCosmetics"},//snack
   ];
+  var household = [
+    {"img": "image 36.png"},
+    {"img": "image 37.png"},
+    {"img": "image 38.png"},
+    {"img": "image 39.png"},
+    {"img": "image 40.png"},//snack
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,6 +122,7 @@ class CategoryScreen extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Expanded(
+            flex: 5,
             child: Padding(
               padding: const EdgeInsets.only(left: 20),
               child: ListView.builder(
@@ -150,7 +159,7 @@ class CategoryScreen extends StatelessWidget {
           ),
 
           Expanded(
-            flex: 3,
+            flex: 5,
             child: Padding(
               padding: const EdgeInsets.only(left: 20),
               child: ListView.builder(
@@ -195,42 +204,75 @@ class CategoryScreen extends StatelessWidget {
                 fontsize: 14,
                 fontfamily: "bold",),
               SizedBox(height: 10,),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: ListView.builder(
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Container(
-                              height: 78,
-                              width: 71,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0XFFD9EBEB),
-                              ),
-                              child: UiHelper.CustomImage(
-                                img: snacksanddrinks[index]["img"].toString(),
-                              ),
-                            ),
-                          ),
-                          UiHelper.CustomText(
-                            text: snacksanddrinks[index]["text"].toString(),
-                            color: Colors.black,
-                            fontweight: FontWeight.normal,
-                            fontsize: 10,
-                          ),
-                        ],
-                      );
-                    },
-                    itemCount: snacksanddrinks.length,
-                    scrollDirection: Axis.horizontal,
-                  ),
-                ),
-              ),
+
             ],
+          ),
+          Expanded(
+            flex: 5,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Container(
+                          height: 78,
+                          width: 71,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0XFFD9EBEB),
+                          ),
+                          child: UiHelper.CustomImage(
+                            img: snacksanddrinks[index]["img"].toString(),
+                          ),
+                        ),
+                      ),
+                      UiHelper.CustomText(
+                        text: snacksanddrinks[index]["text"].toString(),
+                        color: Colors.black,
+                        fontweight: FontWeight.normal,
+                        fontsize: 10,
+                      ),
+                    ],
+                  );
+                },
+                itemCount: snacksanddrinks.length,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+          ),
+          SizedBox(height: 20,),
+          Row(children: [
+            SizedBox(width: 20,),
+            UiHelper.CustomText(text: "Household Essentials", color: Colors.black, fontweight: FontWeight.bold, fontsize: 14, fontfamily: "bold"),
+          ],),
+          Expanded(
+            flex: 5,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Container(
+                      height: 78,
+                      width: 71,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0XFFD9EBEB),
+                      ),
+                      child: UiHelper.CustomImage(
+                        img: household[index]["img"].toString(),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: household.length,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
           ),
         ],
       ),
